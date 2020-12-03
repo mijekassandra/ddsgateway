@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Model\User;
 use Illuminate\Http\Response; 
-//use App\Traits\ApiResponser;
+use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use App\Services\User2Service;
 
 use DB;
 
 Class User2Controller extends Controller {
-    //use ApiResponser;
+    use ApiResponser;
 
     /**
      * The service to consume the User2 Microservice
@@ -28,21 +28,6 @@ Class User2Controller extends Controller {
 
     private $request;
 
-    /********************************************************* */
-
-    public function successResponse($data, $code = Response::HTTP_OK){
-        return response($data, $code)->header('Content-Type','application/json');    
-    }
-
-    public function errorResponse($message, $code){
-        return response()->json(['error' => $message, 'code' => $code],$code);
-    }
-
-    public function errorMessage($message, $code){
-        return response($message, $code)->header('Content-Type','application/json');
-    }
-    
-    /********************************************************* */
 
     // public function __construct(Request $request){
     //     $this->request = $request;
